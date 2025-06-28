@@ -23,31 +23,37 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <HashRouter>
-          <Layout>
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/katalog" element={<Catalog />} />
-              <Route path="/katalog/:id" element={<ManuscriptDetail />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogPostDetail />} />
-              <Route path="/buku-tamu" element={<Guestbook />} />
-              <Route path="/profil" element={<Profile />} />
-              <Route path="/kontak" element={<Contact />} />
-              <Route path="/donasi" element={<Donation />} />
-              <Route path="/login" element={<Login />} />
+          {/* Tambahkan kelas background dan teks default serta dark mode ke elemen pembungkus utama.
+              Ini akan memastikan bahwa seluruh area aplikasi memiliki background dan warna teks yang benar
+              berdasarkan tema yang aktif. min-h-screen memastikan div ini setidaknya setinggi layar.
+          */}
+          <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+            <Layout>
+              <Routes>
+                {/* Public Routes */}
+                <Route path="/" element={<Home />} />
+                <Route path="/katalog" element={<Catalog />} />
+                <Route path="/katalog/:id" element={<ManuscriptDetail />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogPostDetail />} />
+                <Route path="/buku-tamu" element={<Guestbook />} />
+                <Route path="/profil" element={<Profile />} />
+                <Route path="/kontak" element={<Contact />} />
+                <Route path="/donasi" element={<Donation />} />
+                <Route path="/login" element={<Login />} />
 
-              {/* Protected Admin Route */}
-              <Route 
-                path="/admin" 
-                element={
-                  <ProtectedRoute>
-                    <Admin />
-                  </ProtectedRoute>
-                } 
-              />
-            </Routes>
-          </Layout>
+                {/* Protected Admin Route */}
+                <Route
+                  path="/admin"
+                  element={
+                    <ProtectedRoute>
+                      <Admin />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+            </Layout>
+          </div>
         </HashRouter>
       </AuthProvider>
     </ThemeProvider>
