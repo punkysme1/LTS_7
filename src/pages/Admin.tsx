@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Upload, FileText, XCircle } from 'lucide-react';
-
-declare var XLSX: any; // From script tag in index.html
+import * as XLSX from 'xlsx';
 
 const Admin = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
